@@ -4,18 +4,18 @@
     <p>Change your life by having a fuck ton of dogs.</p>
   </div>
 </div>
-<div class="container">
+<div class="container" data-controller="pages">
     <div class="d-flex justify-content-end">
       <%= link_to "Create a new list", new_list_path , class:'btn btn-success my-3' %>
     </div>
-    <div class="list-container" data-controller="pages">
+    <div class="list-container" >
       <% @lists.each do |list| %>
         <% if list.photo.attached? %>
           <% url = cl_image_path list.photo.key %>
         <% else %>
-          <% url = "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png" %>
+          <% url = "https://images.wagwalkingweb.com/media/daily_wag/sense_guides/can-dogs-see-in-a-dark-room/hero/can-dogs-see-in-a-dark-room_3rQvHxF.jpg" %>
         <% end %>
-        <div class="card-trip">
+        <div class="card-trip" data-action="click->pages#show">
           <img src=<%= url  %> />
           <div class="card-trip-infos">
             <div>
