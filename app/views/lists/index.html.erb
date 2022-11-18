@@ -1,10 +1,30 @@
-<h1>Lists</h1>
-
-  <%= link_to "Create a new list", new_list_path %>
-
-  <% @lists.each do |list| %>
-    <li><%= link_to "#{list.name}", list_path(list)  %>
-    <%= link_to "Delete", list_path(list), data: { turbo_method: :delete, turbo_confirm: "Delete #{list.name}?" } %>
-    </li>
-  <% end %>
-</ul>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.wagwalkingweb.com/media/daily_wag/sense_guides/can-dogs-see-in-a-dark-room/hero/can-dogs-see-in-a-dark-room_3rQvHxF.jpg);">
+  <div class="container">
+    <h1>Doggo Lists</h1>
+    <p>Change your life by having a fuck ton of dogs.</p>
+  </div>
+</div>
+<div class="container">
+    <div class="d-flex justify-content-end">
+      <%= link_to "Create a new list", new_list_path , class:'btn btn-success my-3' %>
+    </div>
+    <div class="list-container" data-controller="pages">
+      <% @lists.each do |list| %>
+        <% if list.photo.attached? %>
+          <% url = cl_image_path list.photo.key %>
+        <% else %>
+          <% url = "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png" %>
+        <% end %>
+        <div class="card-trip">
+          <img src=<%= url  %> />
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= link_to "#{list.name}", list_path(list)  %></h2>
+            </div>
+            <h2 class="card-trip-pricing"><%= link_to "Delete", list_path(list), data: { turbo_method: :delete, turbo_confirm: "Delete #{list.name}?" } %></h2>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </ul>
+</div>

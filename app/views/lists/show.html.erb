@@ -1,5 +1,11 @@
-<h1><%= @list.name  %></h1>
-
+<% if @list.photo.attached? %>
+  <% url = cl_image_path @list.photo.key, width: 100, heigth: 200%>
+<% else %>
+  <% url = "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png" %>
+<% end %>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= url  %>)">
+ <h1><%= @list.name %></h1>
+</div>
 <ul>
   <h2>Movies</h2>
   <% @list.bookmarks.each do |bookmark| %>
