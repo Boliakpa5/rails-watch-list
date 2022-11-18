@@ -4,10 +4,10 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
   connect() {
-    console.log("ok")
+    console.log("ok");
   }
 
   show() {
-    console.log(this.element)
+    console.log(this.element);
   }
 }

@@ -4,7 +4,8 @@
 
   <div class="form-inputs">
     <%= f.input :comment %>
-     <%= f.association :movie %>
+    <%= f.association :movie, label: "Dogs" %>
+    <%# f.input :entity_name, input_html: { name: 'entity[name]' }  %>
   </div>
 
   <div class="form-actions">

@@ -15,11 +15,11 @@
         <% else %>
           <% url = "https://images.wagwalkingweb.com/media/daily_wag/sense_guides/can-dogs-see-in-a-dark-room/hero/can-dogs-see-in-a-dark-room_3rQvHxF.jpg" %>
         <% end %>
-        <div class="card-trip" data-action="click->pages#show">
+        <div class="card-trip">
           <img src=<%= url  %> />
           <div class="card-trip-infos">
             <div>
-              <h2><%= link_to "#{list.name}", list_path(list)  %></h2>
+              <h2><%= link_to "#{list.name}", list_path(list) %></h2>
             </div>
             <h2 class="card-trip-pricing"><%= link_to "Delete", list_path(list), data: { turbo_method: :delete, turbo_confirm: "Delete #{list.name}?" } %></h2>
           </div>
